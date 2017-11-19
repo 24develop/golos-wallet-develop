@@ -1,0 +1,1 @@
+Golos wallet for hackaton
