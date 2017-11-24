@@ -1,16 +1,11 @@
 #include "apicaller.h"
 
-ApiCaller::ApiCaller(WebSocketClient *sc, Cmd *cmd, QObject *parent):
-    _socket(sc), _cmd(cmd)
+ApiCaller::ApiCaller(CommandSender *sender, QObject *parent):
+    _sender(sender)
 {
 }
 
 void ApiCaller::call(Command *command)
 {
-    this->_socket->send(command->toJSON());
-}
-
-void ApiCaller::callCmd(Command *command)
-{
-    this->_cmd->send(command->toString());
+    this->_sender->send(command);
 }

@@ -1,14 +1,16 @@
 #ifndef WEBSOCKETCLIENT_H
 #define WEBSOCKETCLIENT_H
 
-#include <QObject>
+#include "command.h"
+#include "commandsender.h"
+
 #include <QtWebSockets/QWebSocket>
 
-class WebSocketClient : public QObject
+class SocketSender : public CommandSender
 {
     Q_OBJECT
 public:
-    explicit WebSocketClient(const QUrl &url, QObject *parent = nullptr);
+    explicit SocketSender(const QUrl &url, QObject *parent = nullptr);
 
 private:
     QWebSocket _socket;
@@ -16,12 +18,12 @@ private:
 
 signals:
     void closed();
-    void responsed(QString response);
+    void response(QString response);
 
 public slots:
     void on_connected();
     void on_response(QString response);
-    void send(QString data);
+    void send(Command *command);
 };
 
 #endif // WEBSOCKETCLIENT_H

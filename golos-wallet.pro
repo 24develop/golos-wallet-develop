@@ -26,23 +26,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    websocketclient.cpp \
     command.cpp \
     apicaller.cpp \
     api.cpp \
-    cmd.cpp \
     loginwindow.cpp \
-    paymentdialog.cpp
+    paymentdialog.cpp \
+    commandsender.cpp \
+    cmdsender.cpp \
+    socketsender.cpp
 
 HEADERS += \
         mainwindow.h \
-    websocketclient.h \
     command.h \
     apicaller.h \
     api.h \
-    cmd.h \
     loginwindow.h \
-    paymentdialog.h
+    paymentdialog.h \
+    commandsender.h \
+    cmdsender.h \
+    socketsender.h
 
 FORMS += \
         mainwindow.ui \
