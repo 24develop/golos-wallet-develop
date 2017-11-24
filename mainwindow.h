@@ -2,9 +2,9 @@
 #define MAINWINDOW_H
 
 #include "command.h"
-#include "websocketclient.h"
+#include "socketsender.h"
 #include "apicaller.h"
-#include "cmd.h"
+#include "cmdsender.h"
 
 #include <QMainWindow>
 
@@ -23,9 +23,9 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    WebSocketClient *_ws;
+    SocketSender *_ws;
     ApiCaller *_caller;
-    Cmd *_cmd;
+    CmdSender *_cmd;
 
 public slots:
     void sendCommand();
