@@ -11,6 +11,7 @@ find_package(Qt5Core REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5WebSockets REQUIRED)
+find_package(Qt5Test REQUIRED)
 
 set(SOURCE_FILES
         api.cpp
@@ -33,6 +34,10 @@ set(SOURCE_FILES
         socketsender.cpp
         socketsender.h)
 
+set(TEST_FILES TestCommand.cpp TestCommand.h command.cpp command.h)
+
 add_executable(hackaton_wallet ${SOURCE_FILES})
+add_executable(hackaton_wallet_tests ${TEST_FILES})
 
 target_link_libraries(hackaton_wallet Qt5::Widgets Qt5::Core Qt5::WebSockets)
+target_link_libraries(hackaton_wallet_tests Qt5::Test Qt5::Widgets Qt5::Core Qt5::WebSockets)
