@@ -10,12 +10,18 @@
 #include <QtTest/QtTest>
 #include <QStringList>
 
-class TestCommand: public QObject {
-    Q_OBJECT
+class TestCommand : public QObject {
+Q_OBJECT
 
 private slots:
+
     void toJson();
+
+    void toJsonArray();
+
     void toString();
+
+    void toStringArray();
 };
 
 

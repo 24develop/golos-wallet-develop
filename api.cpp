@@ -1,5 +1,7 @@
 #include "api.h"
 
+#include <QJsonArray>
+
 Api::Api(ApiCaller *caller, QObject *parent):
     _caller(caller)
 {
@@ -8,14 +10,14 @@ Api::Api(ApiCaller *caller, QObject *parent):
 
 int Api::getAccountsCount()
 {
-    this->_caller->call(new Command(40, "get_accounts_count", new QStringList()));
+    this->_caller->call(new Command(40, "get_accounts_count", new QJsonArray()));
 
     return 1;
 }
 
 bool Api::importKey(QString key)
 {
-    QStringList *params = new QStringList();
+    auto *params = new QJsonArray();
 
     params->append(key);
 
@@ -26,7 +28,7 @@ bool Api::importKey(QString key)
 
 bool Api::transfer(QString from, QString to, QString memo)
 {
-    QStringList *params = new QStringList();
+    auto *params = new QJsonArray();
 
     params->append(from);
     params->append(to);

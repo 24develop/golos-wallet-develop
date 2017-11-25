@@ -3,18 +3,19 @@
 
 #include <QString>
 #include <QStringList>
+#include <QtCore/QJsonObject>
 
-class Command
-{
+class Command {
 private:
     int _id;
     QString _method;
-    QStringList* _params;
+    QJsonArray *_params;
 
 public:
-    Command(int id, QString method, QStringList* params);
+    Command(int id, QString method, QJsonArray *params);
 
     QString toJSON();
+
     QString toString();
 };
 
