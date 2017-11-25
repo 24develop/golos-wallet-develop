@@ -1,4 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
+
 ### CMake template
 CMakeCache.txt
 CMakeFiles
@@ -9,6 +10,7 @@ cmake_install.cmake
 install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
+
 ### C++ template
 # Prerequisites
 *.d
@@ -42,19 +44,8 @@ CTestTestfile.cmake
 *.exe
 *.out
 *.app
+
 ### Qt template
-# C++ objects and libs
-
-*.slo
-*.lo
-*.o
-*.a
-*.la
-*.lai
-*.so
-*.dll
-*.dylib
-
 # Qt-es
 
 object_script.*.Release
