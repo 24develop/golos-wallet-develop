@@ -1,21 +1,19 @@
 #include "command.h"
 
 #include <QJsonDocument>
-#include <QJsonObject>
 #include <QJsonArray>
+#include <QVariant>
 
-Command::Command(int id, QString method, QStringList* params):
-    _id(id), _method(method)
-{
-    this->_params = params;
+Command::Command(int id, QString method, QJsonArray *params) :
+        _id(id), _method(method), _params(params) {
+
 }
 
-QString Command::toJSON()
-{
+QString Command::toJSON() {
     QJsonObject result;
 
     result["method"] = this->_method;
-    result["params"] = QJsonArray::fromStringList(*this->_params);
+    result["params"] = *this->_params;
     result["id"] = this->_id;
 
     QJsonDocument document(result);
@@ -23,7 +21,17 @@ QString Command::toJSON()
     return document.toJson(QJsonDocument::Compact);
 }
 
-QString Command::toString()
-{
-    return this->_method + " " + this->_params->join(" ");
+QString Command::toString() {
+    QStringList params;
+    QVariantList variantParams = this->_params->toVariantList();
+
+    for (auto &variantParam : variantParams) {
+        if (variantParam.type() == QVariant::List) {
+            params.append("[" + variantParam.toStringList().join(",") + "]");
+        }
+
+        params.append(variantParam.toString());
+    }
+
+    return this->_method + " " + params.join(" ").trimmed();
 }
