@@ -32,9 +32,9 @@ set(SOURCE_FILES
         paymentdialog.cpp
         paymentdialog.h
         socketsender.cpp
-        socketsender.h)
+        socketsender.h Response.cpp Response.h)
 
-set(TEST_FILES TestCommand.cpp TestCommand.h command.cpp command.h)
+set(TEST_FILES tests/main.cpp tests/TestCommand.cpp tests/TestCommand.h command.cpp command.h Response.h Response.cpp tests/TestResponse.cpp tests/TestResponse.h)
 
 add_executable(hackaton_wallet ${SOURCE_FILES})
 add_executable(hackaton_wallet_tests ${TEST_FILES})
