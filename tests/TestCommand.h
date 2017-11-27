@@ -5,7 +5,7 @@
 #ifndef HACKATON_WALLET_TESTCOMMAND_H
 #define HACKATON_WALLET_TESTCOMMAND_H
 
-#include "command.h"
+#include "../command.h"
 
 #include <QtTest/QtTest>
 #include <QStringList>

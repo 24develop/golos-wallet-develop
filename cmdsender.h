@@ -6,20 +6,17 @@
 
 #include <QProcess>
 
-class CmdSender : CommandSender
-{
-    Q_OBJECT
+class CmdSender : CommandSender {
+Q_OBJECT
 public:
     explicit CmdSender(QObject *parent = nullptr);
 
 private:
     QProcess *_current;
 
-signals:
-    void response(QString data);
-
 public slots:
-    void send(Command *command);
+
+    void send(Command *command) override;
 };
 
 #endif // CMD_H

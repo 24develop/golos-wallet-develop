@@ -23,5 +23,5 @@ void CmdSender::send(Command *command)
 
     qDebug() << "CMD result: " << result;
 
-    this->response(result);
+    //this->respond(result);
 }

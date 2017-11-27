@@ -6,9 +6,8 @@
 
 #include <QtWebSockets/QWebSocket>
 
-class SocketSender : public CommandSender
-{
-    Q_OBJECT
+class SocketSender : public CommandSender {
+Q_OBJECT
 public:
     explicit SocketSender(const QUrl &url, QObject *parent = nullptr);
 
@@ -17,13 +16,14 @@ private:
     QUrl _url;
 
 signals:
+
     void closed();
-    void response(QString response);
 
 public slots:
-    void on_connected();
-    void on_response(QString response);
-    void send(Command *command);
+
+    void connected();
+
+    void send(Command *command) override;
 };
 
 #endif // WEBSOCKETCLIENT_H
