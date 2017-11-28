@@ -34,7 +34,11 @@ set(SOURCE_FILES
         socketsender.cpp
         socketsender.h Response.cpp Response.h)
 
-set(TEST_FILES tests/main.cpp tests/TestCommand.cpp tests/TestCommand.h command.cpp command.h Response.h Response.cpp tests/TestResponse.cpp tests/TestResponse.h)
+set(TEST_FILES tests/main.cpp tests/TestCommand.cpp tests/TestCommand.h
+        command.cpp command.h
+        Response.h Response.cpp
+        tests/TestResponse.cpp tests/TestResponse.h
+        lib/bs58/base58_c.cpp lib/bs58/libbase58.h lib/bs58/QBS58.cpp lib/bs58/QBS58.h tests/TestQBS58.cpp tests/TestQBS58.h lib/Auth.cpp lib/Auth.h tests/TestAuth.cpp tests/TestAuth.h)
 
 add_executable(hackaton_wallet ${SOURCE_FILES})
 add_executable(hackaton_wallet_tests ${TEST_FILES})

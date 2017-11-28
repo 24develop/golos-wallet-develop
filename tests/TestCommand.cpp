@@ -47,7 +47,3 @@ void TestCommand::toStringArray() {
 
     QCOMPARE(command->toString(), QString("test [1,2,3]"));
 }
-
-//QTEST_MAIN(TestCommand)
-
-//#include "TestCommand.moc"
