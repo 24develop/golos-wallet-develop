@@ -61,7 +61,7 @@
             </widget>
            </item>
            <item>
-               <widget class="QLineEdit" name="lineEdit">
+               <widget class="QLineEdit" name="loginEdit">
                    <property name="styleSheet">
                        <string notr="true">padding: 10px;
                            font-size: 20px;
@@ -79,9 +79,9 @@
                </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton">
-                <property name="styleSheet">
-                    <string notr="true">QPushButton#pushButton {
+               <widget class="QPushButton" name="loginBtn">
+                   <property name="styleSheet">
+                       <string notr="true">QPushButton#loginBtn {
                         background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a),
                         color-stop(1, #68a54b));
                         background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
@@ -97,12 +97,12 @@
                         padding:15px 50px;
                         text-decoration:none;}
 
-                        QPushButton#pushButton:pressed {
+                           QPushButton#loginBtn:pressed {
                         background-color: #72b352;
                         border-style: inset;
                         }
                     </string>
-                </property>
+                   </property>
              <property name="text">
               <string>LOGIN</string>
              </property>
@@ -131,10 +131,10 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
-           <widget class="QLabel" name="label_2">
-               <property name="styleSheet">
-                   <string notr="true">color: #ffffff</string>
-               </property>
+              <widget class="QLabel" name="nameLabel">
+                  <property name="styleSheet">
+                      <string notr="true">color: #ffffff</string>
+                  </property>
             <property name="text">
              <string>UserLogin</string>
             </property>

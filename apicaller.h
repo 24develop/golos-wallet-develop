@@ -7,20 +7,26 @@
 #include <QObject>
 #include <QJsonDocument>
 
-class ApiCaller : public QObject
-{
-    Q_OBJECT
+class ApiCaller : public QObject {
+Q_OBJECT
 public:
     explicit ApiCaller(CommandSender *sender, QObject *parent = nullptr);
 
 private:
     CommandSender *_sender;
+    Response *_lastResponse;
+
+private slots:
+
+    void _responded(Response *response);
 
 signals:
-    void called(QJsonDocument result);
+
+    void respond(Response *response);
 
 public slots:
-    void call(Command *command);
+
+    Response *call(Command *command);
 };
 
 #endif // APICALLER_H

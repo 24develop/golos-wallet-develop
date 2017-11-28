@@ -27,18 +27,13 @@ private:
 
     SocketSender *_ws;
     ApiCaller *_caller;
-    CmdSender *_cmd;
     Api *_api;
 
 public slots:
 
-    void sendCommand();
-
-    void switchToMain();
+    void login();
 
     void showPaymentDialog();
-
-    void receivedResponse(Response *response);
 
     void logout();
 

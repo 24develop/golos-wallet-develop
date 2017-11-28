@@ -1,3 +1,5 @@
+#include <QDebug>
+
 #include "api.h"
 
 Api::Api(ApiCaller *caller, QObject *parent) :
@@ -5,8 +7,12 @@ Api::Api(ApiCaller *caller, QObject *parent) :
 
 }
 
-void Api::getAccountsCount() {
-    this->_caller->call(new Command(40, "get_accounts_count", new QJsonArray()));
+Response *Api::getAccountsCount() {
+    return this->_caller->call(new Command(40, "get_accounts_count", new QJsonArray()));
+}
+
+Response *Api::getDynamicGlobalProperties() {
+    return this->_caller->call(new Command(1, "get_dynamic_global_properties", new QJsonArray()));
 }
 
 bool Api::importKey(QString key) {
@@ -32,24 +38,10 @@ bool Api::transfer(QString from, QString to, QString memo) {
     return true;
 }
 
-void Api::getAccount(const QString &name) {
+Response *Api::getAccount(const QString &name) {
     auto params = new QJsonArray();
 
     params->append(QJsonArray{name});
 
-    this->_caller->call(new Command(37, "get_accounts", params));
-}
-
-void Api::listener(Response *response) {
-    switch (response->getId()) {
-        case 37: {
-            this->getAccountRespond(response);
-
-            break;
-        }
-
-        default: {
-            return;
-        }
-    }
+    return this->_caller->call(new Command(37, "get_accounts", params));
 }
