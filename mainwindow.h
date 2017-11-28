@@ -39,6 +39,10 @@ public slots:
     void showPaymentDialog();
 
     void receivedResponse(Response *response);
+
+    void logout();
+
+    void exit();
 };
 
 #endif // MAINWINDOW_H

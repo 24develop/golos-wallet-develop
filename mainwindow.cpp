@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "paymentdialog.h"
 
+#include "cmake-build-debug/hackaton_wallet_autogen/include/ui_mainwindow.h"
+
 MainWindow::MainWindow(QWidget *parent) :
         QMainWindow(parent),
         ui(new Ui::MainWindow) {
@@ -8,9 +10,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(this->ui->pushButton, SIGNAL(clicked(bool)), this, SLOT(sendCommand()));
     //connect(this->ui->pushButton, SIGNAL(clicked(bool)), this, SLOT(switchToMain()));
-    connect(this->ui->commandLinkButton, SIGNAL(clicked(bool)), this, SLOT(showPaymentDialog()));
-    connect(this->ui->commandLinkButton_2, SIGNAL(clicked(bool)), this, SLOT(showPaymentDialog()));
-    connect(this->ui->commandLinkButton_3, SIGNAL(clicked(bool)), this, SLOT(showPaymentDialog()));
+    connect(this->ui->golosBalanceBtn, SIGNAL(clicked(bool)), this, SLOT(showPaymentDialog()));
+    connect(this->ui->gbgBalanceBtn, SIGNAL(clicked(bool)), this, SLOT(showPaymentDialog()));
+    connect(this->ui->actionLogout, SIGNAL(triggered()), this, SLOT(logout()));
+    connect(this->ui->actionExit, SIGNAL(triggered()), this, SLOT(exit()));
 
     this->_ws = new SocketSender(QUrl(QStringLiteral("wss://ws.golos.io")));
     this->_cmd = new CmdSender();
@@ -46,10 +49,21 @@ void MainWindow::receivedResponse(Response *response) {
     QString sbdBalance = response->getResult()[0].toObject()["sbd_balance"].toString();
     QString accountName = response->getResult()[0].toObject()["name"].toString();
 
-    this->ui->commandLinkButton->setText(balance);
-    this->ui->commandLinkButton_2->setText(sbdBalance);
+    this->ui->golosBalanceBtn->setText(balance);
+    this->ui->gbgBalanceBtn->setText(sbdBalance);
 
     this->ui->label_2->setText(accountName);
 
     this->ui->stackedWidget->setCurrentIndex(1);
+    this->ui->actionLogout->setEnabled(true);
+}
+
+void MainWindow::logout() {
+    this->ui->actionLogout->setEnabled(false);
+
+    this->ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::exit() {
+    this->close();
 }

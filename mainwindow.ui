@@ -13,6 +13,12 @@
   <property name="windowTitle">
    <string>Golog Wallet</string>
   </property>
+     <property name="autoFillBackground">
+         <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+         <string notr="true">background-color: #33393B;</string>
+     </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
@@ -46,6 +52,9 @@
            </item>
            <item>
             <widget class="QLabel" name="label">
+                <property name="styleSheet">
+                    <string notr="true">color: #ffffff;</string>
+                </property>
              <property name="text">
               <string>Login:</string>
              </property>
@@ -53,13 +62,47 @@
            </item>
            <item>
                <widget class="QLineEdit" name="lineEdit">
+                   <property name="styleSheet">
+                       <string notr="true">padding: 10px;
+                           font-size: 20px;
+
+                           background-color: #24292B;
+                           color: #ffffff
+                       </string>
+                   </property>
                    <property name="text">
-                       <string>aantonov</string>
+                       <string notr="true"/>
+                   </property>
+                   <property name="clearButtonEnabled">
+                       <bool>false</bool>
                    </property>
                </widget>
            </item>
            <item>
             <widget class="QPushButton" name="pushButton">
+                <property name="styleSheet">
+                    <string notr="true">QPushButton#pushButton {
+                        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a),
+                        color-stop(1, #68a54b));
+                        background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                        background:-webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                        background:-o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                        background:-ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                        background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+                        background-color:#74ad5a;
+                        border:1px solid #3b6e22;
+                        color:#ffffff;
+                        font-family:Arial;
+                        font-size:16px;
+                        padding:15px 50px;
+                        text-decoration:none;}
+
+                        QPushButton#pushButton:pressed {
+                        background-color: #72b352;
+                        border-style: inset;
+                        }
+                    </string>
+                </property>
              <property name="text">
               <string>LOGIN</string>
              </property>
@@ -89,6 +132,9 @@
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
            <widget class="QLabel" name="label_2">
+               <property name="styleSheet">
+                   <string notr="true">color: #ffffff</string>
+               </property>
             <property name="text">
              <string>UserLogin</string>
             </property>
@@ -110,69 +156,91 @@
          </layout>
         </item>
         <item>
-         <widget class="Line" name="line_4">
+            <spacer name="verticalSpacer_4">
+          <property name="orientation">
+              <enum>Qt::Vertical</enum>
+          </property>
+                <property name="sizeHint" stdset="0">
+                    <size>
+                        <width>20</width>
+                        <height>40</height>
+                    </size>
+                </property>
+            </spacer>
+        </item>
+        <item>
+            <widget class="Line" name="line_4">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
-           <widget class="QCommandLinkButton" name="commandLinkButton">
+              <widget class="QPushButton" name="golosBalanceBtn">
             <property name="font">
              <font>
-              <pointsize>36</pointsize>
+                 <family>DejaVu Sans</family>
+                 <pointsize>23</pointsize>
+                 <strikeout>false</strikeout>
+                 <kerning>true</kerning>
              </font>
             </property>
+                  <property name="styleSheet">
+                      <string notr="true">QPushButton#golosBalanceBtn {
+                          color: #77b55a;
+                          text-align: left;
+                          padding: 10px;
+                          background-color: #33393B;
+                          border: 0;
+                          }
+
+                          QPushButton#golosBalanceBtn:hover {
+                          background-color: #24292B;;
+                          }
+                      </string>
+                  </property>
             <property name="text">
-             <string>500</string>
+                <string>500000 GOLOS</string>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item>
-         <widget class="Line" name="line">
+            <widget class="Line" name="line">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout">
+            <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QCommandLinkButton" name="commandLinkButton_2">
+              <widget class="QPushButton" name="gbgBalanceBtn">
             <property name="font">
              <font>
-              <pointsize>36</pointsize>
+                 <family>DejaVu Sans</family>
+                 <pointsize>23</pointsize>
              </font>
             </property>
+                  <property name="styleSheet">
+                      <string notr="true">QPushButton#gbgBalanceBtn {
+                          color: #77b55a;
+                          text-align: left;
+                          padding: 10px;
+                          background-color: #33393B;
+                          border: 0;
+                          }
+
+                          QPushButton#gbgBalanceBtn:hover {
+                          background-color: #24292B;;
+                          }
+                      </string>
+                  </property>
             <property name="text">
-             <string>700</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="Line" name="line_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <item>
-           <widget class="QCommandLinkButton" name="commandLinkButton_3">
-            <property name="font">
-             <font>
-              <pointsize>36</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>1000</string>
+                <string>7000000 GBG</string>
             </property>
            </widget>
           </item>
@@ -205,6 +273,9 @@
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
+      <property name="enabled">
+          <bool>true</bool>
+      </property>
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -213,16 +284,35 @@
      <height>25</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
+      <property name="styleSheet">
+          <string notr="true"/>
+      </property>
+      <widget class="QMenu" name="menuFile">
+          <property name="title">
+              <string>File</string>
+          </property>
+          <addaction name="actionLogout"/>
+          <addaction name="actionExit"/>
+      </widget>
+      <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+     <action name="actionLogout">
+         <property name="checkable">
+             <bool>false</bool>
+         </property>
+         <property name="enabled">
+             <bool>false</bool>
+         </property>
+         <property name="text">
+             <string>Logout</string>
+         </property>
+     </action>
+     <action name="actionExit">
+         <property name="text">
+             <string>Exit</string>
+         </property>
+     </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
