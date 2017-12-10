@@ -14,6 +14,8 @@ Q_OBJECT
 private slots:
 
     void toWif();
+
+    void fromWif();
 };
 
 

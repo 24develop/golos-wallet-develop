@@ -35,6 +35,8 @@ public slots:
 
     void showPaymentDialog();
 
+    void transfer(QString to, QString amount, QString memo, QString password);
+
     void logout();
 
     void exit();

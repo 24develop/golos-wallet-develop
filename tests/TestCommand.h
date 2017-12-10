@@ -22,6 +22,8 @@ private slots:
     void toString();
 
     void toStringArray();
+
+    void toBuffer();
 };
 
 

@@ -11,6 +11,8 @@
 class Auth {
 public:
     static QString toWif(QString name, QString password, QString role);
+
+    static QByteArray fromWif(QString wif);
 };
 
 

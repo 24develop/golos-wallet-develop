@@ -12,3 +12,9 @@ void TestQBS58::encode() {
 
     QCOMPARE(encoded, QString("Vs5LyU619z1XYfY"));
 }
+
+void TestQBS58::decode() {
+    QByteArray decoded = QBS58::decode("Vs5LyU619z1XYfY");
+
+    QCOMPARE(QString(decoded), QString("test_string"));
+}

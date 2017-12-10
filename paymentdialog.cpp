@@ -6,9 +6,16 @@ PaymentDialog::PaymentDialog(QWidget *parent) :
     ui(new Ui::PaymentDialog)
 {
     ui->setupUi(this);
+
+    connect(this, SIGNAL(accepted()), this, SLOT(emitTransfer()));
 }
 
 PaymentDialog::~PaymentDialog()
 {
     delete ui;
+}
+
+void PaymentDialog::emitTransfer() {
+    this->transfer(this->ui->toEdit->text(), this->ui->amountEdit->text(), this->ui->memoEdit->text(),
+                   this->ui->passwordEdit->text());
 }

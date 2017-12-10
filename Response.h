@@ -16,13 +16,13 @@ public:
         return this->_id;
     }
 
-    QJsonArray getResult() {
+    QJsonValue getResult() {
         return this->_result;
     }
 
 private:
     int _id;
-    QJsonArray _result;
+    QJsonValue _result;
 };
 
 

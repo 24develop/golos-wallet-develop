@@ -17,6 +17,12 @@ public:
     QString toJSON();
 
     QString toString();
+
+    QByteArray toBuffer();
+
+    const QString &getMethod() const;
+
+    QJsonArray *getParams() const;
 };
 
 #endif // COMMAND_H

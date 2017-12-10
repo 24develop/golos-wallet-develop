@@ -3,6 +3,7 @@
 
 #include "apicaller.h"
 #include "Response.h"
+#include "Transaction.h"
 
 #include <QObject>
 
@@ -17,12 +18,32 @@ public:
 
     bool importKey(QString key);
 
-    bool transfer(QString from, QString to, QString memo);
+    Response *transfer(QString wif, QString from, QString to, QString amount, QString memo);
 
     Response *getDynamicGlobalProperties();
 
+    Response *getBlock(int number);
+
+    Response *broadcastTransaction(Transaction *transaction);
+
+    Response *login(QString name, QString password);
+
+    Response *call(QString method, QJsonObject params);
+
+    Response *getApiId(QString group);
+
+    int getCallId();
+
+    void init();
+
 private:
     ApiCaller *_caller;
+    int _callId = 1;
+
+    int _dbCallId;
+    int _followCallId;
+    int _networkCallId;
+    int _loginCallId;
 
 signals:
 

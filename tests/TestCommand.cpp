@@ -47,3 +47,18 @@ void TestCommand::toStringArray() {
 
     QCOMPARE(command->toString(), QString("test [1,2,3]"));
 }
+
+void TestCommand::toBuffer() {
+    auto *params = new QJsonArray();
+
+    params->append("user");
+    params->append("myuser");
+    params->append("1.001 GPG");
+    params->append("test");
+
+    auto command = new Command(1, "transfer", params);
+
+    auto buffer = command->toBuffer();
+
+    QCOMPARE(QString(buffer.toHex()), QString(""));
+}

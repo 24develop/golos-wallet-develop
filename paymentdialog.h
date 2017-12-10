@@ -17,6 +17,14 @@ public:
 
 private:
     Ui::PaymentDialog *ui;
+
+private slots:
+
+    void emitTransfer();
+
+signals:
+
+    void transfer(QString to, QString amount, QString memo, QString password);
 };
 
 #endif // PAYMENTDIALOG_H

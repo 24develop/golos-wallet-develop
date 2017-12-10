@@ -31,17 +31,27 @@ set(SOURCE_FILES
         mainwindow.h
         paymentdialog.cpp
         paymentdialog.h
-        socketsender.cpp
-        socketsender.h Response.cpp Response.h)
+        socketsender.cpp socketsender.h
+        Response.cpp Response.h
+        Transaction.cpp Transaction.h
+        lib/bs58/base58_c.cpp lib/bs58/libbase58.h
+        lib/bs58/QBS58.cpp lib/bs58/QBS58.h
+        lib/Auth.cpp lib/Auth.h
+        lib/Signer.cpp lib/Signer.h
+        )
 
 set(TEST_FILES tests/main.cpp tests/TestCommand.cpp tests/TestCommand.h
+        commandsender.cpp commandsender.h
+        socketsender.cpp socketsender.h
+        apicaller.cpp apicaller.h
+        api.cpp api.h
         command.cpp command.h
         Response.h Response.cpp
         tests/TestResponse.cpp tests/TestResponse.h
-        lib/bs58/base58_c.cpp lib/bs58/libbase58.h lib/bs58/QBS58.cpp lib/bs58/QBS58.h tests/TestQBS58.cpp tests/TestQBS58.h lib/Auth.cpp lib/Auth.h tests/TestAuth.cpp tests/TestAuth.h)
+        lib/bs58/base58_c.cpp lib/bs58/libbase58.h lib/bs58/QBS58.cpp lib/bs58/QBS58.h tests/TestQBS58.cpp tests/TestQBS58.h lib/Auth.cpp lib/Auth.h tests/TestAuth.cpp tests/TestAuth.h Transaction.cpp Transaction.h tests/TestTransaction.cpp tests/TestTransaction.h lib/Signer.cpp lib/Signer.h tests/TestSigner.cpp tests/TestSigner.h)
+
+link_directories(/usr/local/lib)
 
 add_executable(hackaton_wallet ${SOURCE_FILES})
-add_executable(hackaton_wallet_tests ${TEST_FILES})
 
-target_link_libraries(hackaton_wallet Qt5::Widgets Qt5::Core Qt5::WebSockets)
-target_link_libraries(hackaton_wallet_tests Qt5::Test Qt5::Widgets Qt5::Core Qt5::WebSockets)
+target_link_libraries(hackaton_wallet Qt5::Widgets Qt5::Core Qt5::WebSockets cryptopp secp256k1)

@@ -11,6 +11,8 @@
 class QBS58 {
 public:
     static QString encode(QByteArray raw);
+
+    static QByteArray decode(QString wif);
 };
 
 

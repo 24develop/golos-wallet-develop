@@ -16,5 +16,5 @@ Response::Response(QString rawResponse) {
 
     this->_id = commandResultObject["id"].toInt();
 
-    this->_result = commandResultObject["result"].toArray();
+    this->_result = commandResultObject["result"];
 }

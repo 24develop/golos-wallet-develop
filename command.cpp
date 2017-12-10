@@ -35,3 +35,42 @@ QString Command::toString() {
 
     return this->_method + " " + params.join(" ").trimmed();
 }
+
+QByteArray Command::toBuffer() {
+    if (this->_method == "transfer") {
+        auto amount = this->_params->at(2).toString().split(' ');
+
+        auto dotIndex = amount[0].indexOf('.');
+        uint64_t pay = amount[0].remove('.').toUInt();
+        auto precision = dotIndex == -1 ? 0 : amount[0].length() - 1;
+
+        auto currency = amount[1];
+
+        auto *buf = new QByteArray(7, 0);
+        buf->insert(0, currency.toUtf8());
+
+        return QByteArray()
+                .append((char) this->_id)
+                .append(2)
+                .append((char) this->_params->at(0).toString().size())
+                .append(this->_params->at(0).toString().toUtf8())
+                .append((char) this->_params->at(1).toString().size())
+                .append(this->_params->at(1).toString().toUtf8())
+                .append(reinterpret_cast<const char *>(&pay), sizeof(pay))
+                .append((char) precision)
+                .append(buf->mid(0, 7))
+                .append((char) this->_params->at(3).toString().size())
+                .append(this->_params->at(3).toString().toUtf8())
+                .append((char) 0);
+    } else {
+        return QByteArray();
+    }
+}
+
+const QString &Command::getMethod() const {
+    return _method;
+}
+
+QJsonArray *Command::getParams() const {
+    return _params;
+}

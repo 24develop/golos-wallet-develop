@@ -11,5 +11,5 @@ void TestResponse::constructor() {
     auto response = new Response(rawResponse);
 
     QCOMPARE(response->getId(), 10);
-    QCOMPARE(response->getResult().size(), 3);
+    QCOMPARE(response->getResult().toArray().size(), 3);
 }

@@ -19,6 +19,8 @@ signals:
 
     void closed();
 
+    void sconnect();
+
 public slots:
 
     void connected();
