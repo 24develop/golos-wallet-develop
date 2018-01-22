@@ -1,3 +1,5 @@
+#include <QtGui/QMovie>
+#include <QtWidgets/QGraphicsPixmapItem>
 #include "mainwindow.h"
 #include "paymentdialog.h"
 
@@ -21,6 +23,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->_caller = new ApiCaller(this->_ws);
     this->_api = new Api(this->_caller);
+
+    QMovie *transferLoader = new QMovie(":/images/loader.gif");
+
+    this->ui->movieLabel->setMovie(transferLoader);
+    transferLoader->start();
 }
 
 MainWindow::~MainWindow() {
@@ -28,16 +35,10 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::login() {
-    auto account = this->_api->getAccount(this->ui->loginEdit->text());
+    const auto pixmap = QPixmap(":/images/user-icon.png");
+    this->ui->userIconLabel->setPixmap(pixmap.scaled(QSize(50, 50), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
 
-    QString balance = account->getResult().toArray()[0].toObject()["balance"].toString();
-    QString sbdBalance = account->getResult().toArray()[0].toObject()["sbd_balance"].toString();
-    QString accountName = account->getResult().toArray()[0].toObject()["name"].toString();
-
-    this->ui->golosBalanceBtn->setText(balance);
-    this->ui->gbgBalanceBtn->setText(sbdBalance);
-
-    this->ui->nameLabel->setText(accountName);
+    this->refreshWalletData();
 
     this->ui->stackedWidget->setCurrentIndex(1);
     this->ui->actionLogout->setEnabled(true);
@@ -69,5 +70,28 @@ void MainWindow::transfer(QString to, QString amount, QString memo, QString pass
 
     auto wif = Auth::toWif(this->ui->nameLabel->text(), password, "active");
 
-    this->_api->transfer(wif, this->ui->nameLabel->text(), to, amount, memo);
+    this->ui->stackedWidget->setCurrentIndex(2);
+
+    const auto result = this->_api->transfer(wif, this->ui->nameLabel->text(), to, amount, memo);
+
+    if (!result->getError().isUndefined() && !result->getError().isNull()) {
+        qDebug() << "Error: " << result->getError().toObject()["message"].toString();
+    } else {
+        this->refreshWalletData();
+    }
+
+    this->ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::refreshWalletData() {
+    auto account = this->_api->getAccount(this->ui->loginEdit->text());
+
+    QString balance = account->getResult().toArray()[0].toObject()["balance"].toString();
+    QString sbdBalance = account->getResult().toArray()[0].toObject()["sbd_balance"].toString();
+    QString accountName = account->getResult().toArray()[0].toObject()["name"].toString();
+
+    this->ui->golosBalanceBtn->setText(balance);
+    this->ui->gbgBalanceBtn->setText(sbdBalance);
+
+    this->ui->nameLabel->setText(accountName);
 }

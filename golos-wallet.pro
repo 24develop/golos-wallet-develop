@@ -51,3 +51,10 @@ FORMS += \
     loginwindow.ui \
     paymentdialog.ui \
     paymentdialog.ui
+
+DISTFILES += \
+    ../../../Downloads/ajax-loader.gif \
+    ../../../Downloads/ajax-loader.gif
+
+RESOURCES += \
+    resource.qrc

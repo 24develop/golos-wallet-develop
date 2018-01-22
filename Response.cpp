@@ -17,4 +17,6 @@ Response::Response(QString rawResponse) {
     this->_id = commandResultObject["id"].toInt();
 
     this->_result = commandResultObject["result"];
+
+    this->_error = commandResultObject["error"];
 }

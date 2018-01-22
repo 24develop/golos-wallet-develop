@@ -20,9 +20,13 @@ public:
         return this->_result;
     }
 
+    QJsonValue getError() {
+        return this->_error;
+    }
 private:
     int _id;
     QJsonValue _result;
+    QJsonValue _error;
 };
 
 

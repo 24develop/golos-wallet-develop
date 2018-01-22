@@ -33,6 +33,8 @@ public slots:
 
     void login();
 
+    void refreshWalletData();
+
     void showPaymentDialog();
 
     void transfer(QString to, QString amount, QString memo, QString password);

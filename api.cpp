@@ -75,7 +75,7 @@ Response *Api::getBlock(int number) {
 }
 
 Response *Api::broadcastTransaction(Transaction *transaction) {
-    this->call("broadcast_transaction_synchronous", transaction->toJSON());
+    return this->call("broadcast_transaction_synchronous", transaction->toJSON());
 }
 
 Response *Api::call(QString method, QJsonObject params) {

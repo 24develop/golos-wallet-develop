@@ -6,6 +6,7 @@ set(CMAKE_PREFIX_PATH "/home/artem/SDK/Qt/5.9.3/gcc_64/")
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
 find_package(Qt5Core REQUIRED)
 find_package(Qt5Widgets REQUIRED)
@@ -52,7 +53,7 @@ set(TEST_FILES tests/main.cpp tests/TestCommand.cpp tests/TestCommand.h
 
 link_directories(/usr/local/lib)
 
-add_executable(hackaton_wallet ${SOURCE_FILES})
+add_executable(hackaton_wallet ${SOURCE_FILES} resource.qrc)
 add_executable(hackaton_wallet_tests ${TEST_FILES})
 
 target_link_libraries(hackaton_wallet Qt5::Widgets Qt5::Core Qt5::WebSockets cryptopp secp256k1)

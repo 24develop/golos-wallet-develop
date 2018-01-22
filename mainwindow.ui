@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>358</width>
-    <height>548</height>
+       <width>334</width>
+       <height>487</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,43 +23,51 @@
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
+         <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+             </sizepolicy>
+         </property>
+         <property name="autoFillBackground">
+             <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+             <string notr="true"/>
+         </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <widget class="QGroupBox" name="loginGBox">
-          <property name="enabled">
-           <bool>true</bool>
-          </property>
-          <property name="title">
-           <string/>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
-           <item>
             <spacer name="verticalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QLabel" name="label">
-                <property name="styleSheet">
-                    <string notr="true">color: #ffffff;</string>
+                <property name="orientation">
+                    <enum>Qt::Vertical</enum>
                 </property>
-             <property name="text">
-              <string>Login:</string>
-             </property>
-            </widget>
-           </item>
+                <property name="sizeType">
+                    <enum>QSizePolicy::Minimum</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                    <size>
+                        <width>20</width>
+                        <height>40</height>
+                    </size>
+                </property>
+            </spacer>
+        </item>
+           <item>
+               <widget class="QGroupBox" name="loginGBox">
+                   <property name="enabled">
+                       <bool>true</bool>
+                   </property>
+                   <property name="styleSheet">
+                       <string notr="true">color: #ffffff;</string>
+                   </property>
+                   <property name="title">
+                       <string>Login:</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
                <widget class="QLineEdit" name="loginEdit">
                    <property name="styleSheet">
@@ -79,9 +87,25 @@
                </widget>
            </item>
            <item>
-               <widget class="QPushButton" name="loginBtn">
-                   <property name="styleSheet">
-                       <string notr="true">QPushButton#loginBtn {
+               <spacer name="verticalSpacer">
+                   <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                       <enum>QSizePolicy::Fixed</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                       <size>
+                           <width>20</width>
+                           <height>10</height>
+                       </size>
+                   </property>
+               </spacer>
+           </item>
+                       <item>
+                           <widget class="QPushButton" name="loginBtn">
+                               <property name="styleSheet">
+                                   <string notr="true">QPushButton#loginBtn {
                         background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a),
                         color-stop(1, #68a54b));
                         background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
@@ -102,24 +126,11 @@
                         border-style: inset;
                         }
                     </string>
-                   </property>
+                               </property>
              <property name="text">
               <string>LOGIN</string>
              </property>
             </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </widget>
@@ -129,17 +140,16 @@
       <widget class="QWidget" name="page_2">
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <item>
-              <widget class="QLabel" name="nameLabel">
-                  <property name="styleSheet">
-                      <string notr="true">color: #ffffff</string>
-                  </property>
-            <property name="text">
-             <string>UserLogin</string>
-            </property>
-           </widget>
-          </item>
+            <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,0,0">
+                <property name="sizeConstraint">
+                    <enum>QLayout::SetMinimumSize</enum>
+                </property>
+                <property name="topMargin">
+                    <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                    <number>0</number>
+                </property>
           <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
@@ -153,7 +163,141 @@
             </property>
            </spacer>
           </item>
-         </layout>
+                <item>
+                    <widget class="QLabel" name="nameLabel">
+                        <property name="maximumSize">
+                            <size>
+                                <width>1000</width>
+                                <height>50</height>
+                            </size>
+                        </property>
+                        <property name="styleSheet">
+                            <string notr="true">color: #ffffff</string>
+                        </property>
+                        <property name="text">
+                            <string>user_name</string>
+                        </property>
+                        <property name="scaledContents">
+                            <bool>false</bool>
+                        </property>
+                    </widget>
+                </item>
+                <item>
+                    <widget class="QLabel" name="userIconLabel">
+                        <property name="minimumSize">
+                            <size>
+                                <width>50</width>
+                                <height>50</height>
+                            </size>
+                        </property>
+                        <property name="maximumSize">
+                            <size>
+                                <width>50</width>
+                                <height>50</height>
+                            </size>
+                        </property>
+                        <property name="text">
+                            <string>icon</string>
+                        </property>
+                        <property name="alignment">
+                            <set>Qt::AlignCenter</set>
+                        </property>
+                    </widget>
+                </item>
+            </layout>
+        </item>
+        <item>
+            <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+            <widget class="QGroupBox" name="balanceBox">
+                <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);</string>
+                </property>
+                <property name="title">
+                    <string>Balance:</string>
+                </property>
+                <property name="flat">
+                    <bool>false</bool>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_7">
+                    <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout_2">
+                            <item>
+                                <widget class="QPushButton" name="golosBalanceBtn">
+                                    <property name="font">
+                                        <font>
+                                            <family>DejaVu Sans</family>
+                                            <pointsize>23</pointsize>
+                                            <strikeout>false</strikeout>
+                                            <kerning>true</kerning>
+                                        </font>
+                                    </property>
+                                    <property name="styleSheet">
+                                        <string notr="true">QPushButton#golosBalanceBtn {
+                                            color: #77b55a;
+                                            text-align: left;
+                                            padding: 10px;
+                                            background-color: #33393B;
+                                            border: 0;
+                                            }
+
+                                            QPushButton#golosBalanceBtn:hover {
+                                            background-color: #24292B;;
+                                            }
+                                        </string>
+                                    </property>
+                                    <property name="text">
+                                        <string>500000 GOLOS</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </item>
+                    <item>
+                        <widget class="Line" name="line">
+                            <property name="orientation">
+                                <enum>Qt::Horizontal</enum>
+                            </property>
+                        </widget>
+                    </item>
+                    <item>
+                        <layout class="QHBoxLayout" name="horizontalLayout">
+                            <item>
+                                <widget class="QPushButton" name="gbgBalanceBtn">
+                                    <property name="font">
+                                        <font>
+                                            <family>DejaVu Sans</family>
+                                            <pointsize>23</pointsize>
+                                        </font>
+                                    </property>
+                                    <property name="styleSheet">
+                                        <string notr="true">QPushButton#gbgBalanceBtn {
+                                            color: #77b55a;
+                                            text-align: left;
+                                            padding: 10px;
+                                            background-color: #33393B;
+                                            border: 0;
+                                            }
+
+                                            QPushButton#gbgBalanceBtn:hover {
+                                            background-color: #24292B;;
+                                            }
+                                        </string>
+                                    </property>
+                                    <property name="text">
+                                        <string>7000000 GBG</string>
+                                    </property>
+                                </widget>
+                            </item>
+                        </layout>
+                    </item>
+                </layout>
+            </widget>
         </item>
         <item>
             <spacer name="verticalSpacer_4">
@@ -168,90 +312,59 @@
                 </property>
             </spacer>
         </item>
-        <item>
-            <widget class="Line" name="line_4">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-              <widget class="QPushButton" name="golosBalanceBtn">
-            <property name="font">
-             <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>23</pointsize>
-                 <strikeout>false</strikeout>
-                 <kerning>true</kerning>
-             </font>
-            </property>
-                  <property name="styleSheet">
-                      <string notr="true">QPushButton#golosBalanceBtn {
-                          color: #77b55a;
-                          text-align: left;
-                          padding: 10px;
-                          background-color: #33393B;
-                          border: 0;
-                          }
-
-                          QPushButton#golosBalanceBtn:hover {
-                          background-color: #24292B;;
-                          }
-                      </string>
-                  </property>
-            <property name="text">
-                <string>500000 GOLOS</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-            <widget class="Line" name="line">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-            <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
-              <widget class="QPushButton" name="gbgBalanceBtn">
-            <property name="font">
-             <font>
-                 <family>DejaVu Sans</family>
-                 <pointsize>23</pointsize>
-             </font>
-            </property>
-                  <property name="styleSheet">
-                      <string notr="true">QPushButton#gbgBalanceBtn {
-                          color: #77b55a;
-                          text-align: left;
-                          padding: 10px;
-                          background-color: #33393B;
-                          border: 0;
-                          }
-
-                          QPushButton#gbgBalanceBtn:hover {
-                          background-color: #24292B;;
-                          }
-                      </string>
-                  </property>
-            <property name="text">
-                <string>7000000 GBG</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <widget class="Line" name="line_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
+       </layout>
+      </widget>
+         <widget class="QWidget" name="page_3">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <item>
+                     <layout class="QVBoxLayout" name="verticalLayout">
+                         <item>
+                             <spacer name="verticalSpacer_6">
+                                 <property name="orientation">
+                                     <enum>Qt::Vertical</enum>
+                                 </property>
+                                 <property name="sizeHint" stdset="0">
+                                     <size>
+                                         <width>20</width>
+                                         <height>40</height>
+                                     </size>
+                                 </property>
+                             </spacer>
+                         </item>
+                         <item>
+                             <widget class="QLabel" name="movieLabel">
+                                 <property name="text">
+                                     <string>movieplacer</string>
+                                 </property>
+                                 <property name="alignment">
+                                     <set>Qt::AlignCenter</set>
+                                 </property>
+                             </widget>
+                         </item>
+                         <item>
+                             <widget class="QLabel" name="transferLabel">
+                                 <property name="text">
+                                     <string>Transfer...</string>
+                                 </property>
+                                 <property name="alignment">
+                                     <set>Qt::AlignCenter</set>
+                                 </property>
+                             </widget>
+                         </item>
+                         <item>
+                             <spacer name="verticalSpacer_5">
+                                 <property name="orientation">
+                                     <enum>Qt::Vertical</enum>
+                                 </property>
+                                 <property name="sizeHint" stdset="0">
+                                     <size>
+                                         <width>20</width>
+                                         <height>40</height>
+                                     </size>
+                                 </property>
+                             </spacer>
+                         </item>
+                     </layout>
         </item>
        </layout>
       </widget>
@@ -262,10 +375,13 @@
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
+         <property name="sizeType">
+             <enum>QSizePolicy::Preferred</enum>
+         </property>
       <property name="sizeHint" stdset="0">
        <size>
         <width>20</width>
-        <height>40</height>
+           <height>1000</height>
        </size>
       </property>
      </spacer>
@@ -280,7 +396,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>358</width>
+        <width>334</width>
      <height>25</height>
     </rect>
    </property>

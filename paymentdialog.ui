@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-       <width>761</width>
+       <width>413</width>
        <height>216</height>
    </rect>
   </property>
@@ -35,6 +35,10 @@
                  <layout class="QHBoxLayout" name="horizontalLayout_3">
                      <item>
                          <widget class="QLabel" name="label_3">
+                             <property name="styleSheet">
+                                 <string notr="true">color: #ffffff
+                                 </string>
+                             </property>
                              <property name="text">
                                  <string>To:</string>
                              </property>
@@ -59,6 +63,9 @@
            <layout class="QHBoxLayout" name="horizontalLayout_4">
                <item>
                    <widget class="QLabel" name="label_2">
+                       <property name="styleSheet">
+                           <string notr="true">color: #ffffff</string>
+                       </property>
                        <property name="text">
                            <string>Amount:</string>
                        </property>
@@ -83,6 +90,9 @@
            <layout class="QHBoxLayout" name="horizontalLayout_2">
                <item>
                    <widget class="QLabel" name="label_4">
+                       <property name="styleSheet">
+                           <string notr="true">color: #ffffff</string>
+                       </property>
                        <property name="text">
                            <string>Memo:</string>
                        </property>
@@ -107,6 +117,9 @@
            <layout class="QHBoxLayout" name="horizontalLayout">
                <item>
                    <widget class="QLabel" name="label">
+                       <property name="styleSheet">
+                           <string notr="true">color: #ffffff</string>
+                       </property>
                        <property name="text">
                            <string>Password:</string>
                        </property>
@@ -146,6 +159,11 @@
        </item>
              <item>
                  <widget class="QLineEdit" name="toEdit">
+                     <property name="styleSheet">
+                         <string notr="true">background-color: #24292B;
+                             color: #ffffff
+                         </string>
+                     </property>
                      <property name="text">
                          <string>walletgolos</string>
                      </property>
@@ -169,6 +187,11 @@
              </item>
              <item>
                  <widget class="QLineEdit" name="amountEdit">
+                     <property name="styleSheet">
+                         <string notr="true">background-color: #24292B;
+                             color: #ffffff
+                         </string>
+                     </property>
          <property name="text">
              <string>0.001 GOLOS</string>
          </property>
@@ -189,6 +212,11 @@
        </item>
              <item>
                  <widget class="QLineEdit" name="memoEdit">
+                     <property name="styleSheet">
+                         <string notr="true">background-color: #24292B;
+                             color: #ffffff
+                         </string>
+                     </property>
                      <property name="text">
                          <string>II</string>
                      </property>
@@ -209,8 +237,16 @@
        </item>
        <item>
            <widget class="QLineEdit" name="passwordEdit">
+               <property name="styleSheet">
+                   <string notr="true">background-color: #24292B;
+                       color: #ffffff
+                   </string>
+               </property>
                <property name="text">
                    <string>P5KfLXETZRbreVHqv7APJj85UtaqaJphKUqnBpjBRL35PyXoeYH5</string>
+               </property>
+               <property name="echoMode">
+                   <enum>QLineEdit::Password</enum>
                </property>
            </widget>
        </item>
@@ -233,6 +269,9 @@
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
+        <property name="styleSheet">
+            <string notr="true">color: #ffffff</string>
+        </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
