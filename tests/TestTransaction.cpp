@@ -1,5 +1,5 @@
 //
-// Created by artem on 01.12.17.
+// Created by Artem Antonov on 01.12.17.
 //
 
 #include "TestTransaction.h"

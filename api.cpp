@@ -45,6 +45,10 @@ Response *Api::transfer(QString wif, QString from, QString to, QString amount, Q
     transaction->prepareTransaction();
     transaction->signTransaction(wif);
 
+    const auto validatedResponse = this->validateTransaction(transaction);
+
+    qDebug() << "Validation result: " << validatedResponse->getResult().toString();
+
     return this->broadcastTransaction(transaction);
 }
 
@@ -124,4 +128,17 @@ void Api::init() {
     this->_loginCallId = this->getApiId("login_api")->getResult().toInt();
     this->_followCallId = this->getApiId("follow_api")->getResult().toInt();
     this->_networkCallId = this->getApiId("network_broadcast_api")->getResult().toInt();
+}
+
+Response *Api::validateTransaction(Transaction *transaction) {
+    QJsonArray params;
+    QJsonArray methodParams;
+
+    methodParams.append(transaction->toJSON());
+
+    params.append(this->_dbCallId);
+    params.append("verify_authority");
+    params.append(methodParams);
+
+    return this->_caller->call(new Command(this->getCallId(), "call", &params));
 }

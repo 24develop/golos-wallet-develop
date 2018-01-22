@@ -1,5 +1,5 @@
 //
-// Created by artem on 01.12.17.
+// Created by Artem Antonov on 01.12.17.
 //
 
 #include <QtCore/QDateTime>
@@ -14,26 +14,30 @@
 #include "api.h"
 #include "lib/Signer.h"
 
+#define EXPIRATION_TIME 60
+
 Transaction::Transaction(Api *api, Command *command, QObject *parent) :
         _api(api), _command(command), QObject(parent) {}
 
 void Transaction::prepareTransaction() {
     Response *data = this->_api->getDynamicGlobalProperties();
 
-    QString time = data->getResult().toObject()["time"].toString();
+    QString time = data->getResult().toObject()["time"].toString() + "Z";
 
     qDebug() << "Time: " << time;
 
     uint unixTime = QDateTime::fromString(time, Qt::ISODate).toTime_t();
-    uint expiration = unixTime + 600 * 1000;
+    uint expiration = unixTime + EXPIRATION_TIME;
 
-    this->_expirationIso = QDateTime::fromSecsSinceEpoch(expiration).toString(Qt::ISODate);
+    this->_expirationIso = QDateTime::fromSecsSinceEpoch(expiration, Qt::UTC).toString(Qt::ISODate);
 
-    uint refBlockNum = (uint) (data->getResult().toObject()["last_irreversible_block_num"].toInt() - 1) & 0xFFFF;
+    uint refBlockNum = (uint) (data->getResult().toObject()["head_block_number"].toInt() - 3) & 0xFFFF;
 
-    Response *blockData = this->_api->getBlock(refBlockNum);
+    Response *blockData = this->_api->getBlock(data->getResult().toObject()["head_block_number"].toInt() - 2);
 
     auto headBlockId = QByteArray::fromHex(blockData->getResult().toObject()["previous"].toString().toUtf8());
+
+    this->_expirationIso.replace('Z', "");
 
     this->_expiration = expiration;
     this->_ref_block_num = refBlockNum;
@@ -48,6 +52,7 @@ void Transaction::prepareTransaction() {
 void Transaction::signTransaction(QString wif) {
     auto privateKeyBuffer = Auth::fromWif(wif);
 
+    qDebug() << "Private key char: " << privateKeyBuffer.toHex(' ');
     qDebug() << "Private key buffer: " << privateKeyBuffer;
 
     auto transaction = QByteArray::number(qToBigEndian((uint16_t) this->_ref_block_num), 16)
@@ -68,6 +73,8 @@ void Transaction::signTransaction(QString wif) {
     qDebug() << "Transaction hash: " << transaction.toHex(' ');
 
     auto signature = Signer::sign(privateKeyBuffer, transaction);
+
+    qDebug() << "Verified: " << Signer::verify(signature, transaction);
 
     qDebug() << "Signature raw: " << signature;
     qDebug() << "Signature hex: " << signature.toHex(' ');

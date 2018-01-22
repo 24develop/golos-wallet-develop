@@ -3,6 +3,9 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QVariant>
+#include <QDebug>
+
+#define STEEM_SYMBOL (uint64_t(3) | (uint64_t('G') << 8) | (uint64_t('O') << 16) | (uint64_t('L') << 24) | (uint64_t('O') << 32) | (uint64_t('S') << 40)) ///< STEEM with 3 digits of precision
 
 Command::Command(int id, QString method, QJsonArray *params) :
         _id(id), _method(method), _params(params) {
@@ -49,7 +52,9 @@ QByteArray Command::toBuffer() {
         auto *buf = new QByteArray(7, 0);
         buf->insert(0, currency.toUtf8());
 
-        return QByteArray()
+        qDebug() << "Currency: " << buf->toHex(' ');
+
+        auto serialized = QByteArray()
                 .append((char) this->_id)
                 .append(2)
                 .append((char) this->_params->at(0).toString().size())
@@ -62,6 +67,10 @@ QByteArray Command::toBuffer() {
                 .append((char) this->_params->at(3).toString().size())
                 .append(this->_params->at(3).toString().toUtf8())
                 .append((char) 0);
+
+        qDebug() << "Serialized: " << serialized.toHex(' ');
+
+        return serialized;
     } else {
         return QByteArray();
     }

@@ -1,5 +1,5 @@
 //
-// Created by artem on 03.12.17.
+// Created by Artem Antonov on 03.12.17.
 //
 
 #ifndef HACKATON_WALLET_TESTSIGNER_H

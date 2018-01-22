@@ -1,5 +1,5 @@
 //
-// Created by artem on 28.11.17.
+// Created by Artem Antonov on 28.11.17.
 //
 
 #ifndef HACKATON_WALLET_AUTH_H
@@ -13,6 +13,8 @@ public:
     static QString toWif(QString name, QString password, QString role);
 
     static QByteArray fromWif(QString wif);
+
+    static QByteArray toBytes(QString wif);
 };
 
 

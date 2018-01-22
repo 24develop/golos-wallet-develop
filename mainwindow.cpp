@@ -15,8 +15,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this->ui->actionLogout, SIGNAL(triggered()), this, SLOT(logout()));
     connect(this->ui->actionExit, SIGNAL(triggered()), this, SLOT(exit()));
 
-    //this->_ws = new SocketSender(QUrl("wss://ws.golos.io"));
-    this->_ws = new SocketSender(QUrl("wss://api.golos.cf"));
+    this->_ws = new SocketSender(QUrl("wss://ws.golos.io"));
+    //this->_ws = new SocketSender(QUrl("wss://api.golos.cf"));
+    //this->_ws = new SocketSender(QUrl("ws://127.0.0.1:8090"));
 
     this->_caller = new ApiCaller(this->_ws);
     this->_api = new Api(this->_caller);
@@ -27,8 +28,6 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::login() {
-    this->_api->init();
-
     auto account = this->_api->getAccount(this->ui->loginEdit->text());
 
     QString balance = account->getResult().toArray()[0].toObject()["balance"].toString();
@@ -64,9 +63,11 @@ void MainWindow::exit() {
 }
 
 void MainWindow::transfer(QString to, QString amount, QString memo, QString password) {
-    auto wif = Auth::toWif(this->ui->nameLabel->text(), password, "active");
+    this->_api->init();
 
     this->_api->login("", "");
+
+    auto wif = Auth::toWif(this->ui->nameLabel->text(), password, "active");
 
     this->_api->transfer(wif, this->ui->nameLabel->text(), to, amount, memo);
 }

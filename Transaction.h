@@ -1,5 +1,5 @@
 //
-// Created by artem on 01.12.17.
+// Created by Artem Antonov on 01.12.17.
 //
 
 #ifndef HACKATON_WALLET_TRANSACTION_H
@@ -24,6 +24,10 @@ public:
     void signTransaction(QString wif);
 
     QJsonObject toJSON();
+
+    QString signature() {
+        return this->_signature;
+    }
 
 private:
     Api *_api;

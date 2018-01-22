@@ -32,6 +32,8 @@ public:
 
     Response *getApiId(QString group);
 
+    Response *validateTransaction(Transaction *transaction);
+
     int getCallId();
 
     void init();

@@ -1,5 +1,5 @@
 //
-// Created by artem on 26.11.17.
+// Created by Artem Antonov on 26.11.17.
 //
 
 #include <QtCore/QJsonDocument>
