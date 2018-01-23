@@ -16,6 +16,11 @@ PaymentDialog::~PaymentDialog()
 }
 
 void PaymentDialog::emitTransfer() {
-    this->transfer(this->ui->toEdit->text(), this->ui->amountEdit->text(), this->ui->memoEdit->text(),
+    this->transfer(this->ui->toEdit->text(), this->ui->amountSpinBox->text().replace(QLocale().decimalPoint(), "."),
+                   this->ui->memoEdit->text(),
                    this->ui->passwordEdit->text());
+}
+
+void PaymentDialog::setAmountSuffix(QString suffix) {
+    this->ui->amountSpinBox->setSuffix(suffix);
 }

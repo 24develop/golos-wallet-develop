@@ -15,8 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     connect(this->ui->loginBtn, SIGNAL(clicked(bool)), this, SLOT(login()));
-    connect(this->ui->golosBalanceBtn, SIGNAL(clicked(bool)), this, SLOT(showPaymentDialog()));
-    connect(this->ui->gbgBalanceBtn, SIGNAL(clicked(bool)), this, SLOT(showPaymentDialog()));
+    connect(this->ui->golosBalanceBtn, SIGNAL(clicked(bool)), this, SLOT(showGolosPaymentDialog()));
+    connect(this->ui->gbgBalanceBtn, SIGNAL(clicked(bool)), this, SLOT(showGbgPaymentDialog()));
     connect(this->ui->logoutBtn, SIGNAL(clicked(bool)), this, SLOT(logout()));
     connect(this->ui->actionExit, SIGNAL(triggered()), this, SLOT(exit()));
 
@@ -58,8 +58,10 @@ void MainWindow::login() {
     this->ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainWindow::showPaymentDialog() {
+void MainWindow::showPaymentDialog(QString suffix) {
     PaymentDialog dialog(this);
+
+    dialog.setAmountSuffix(suffix);
 
     connect(&dialog, SIGNAL(transfer(QString, QString, QString, QString)), this, SLOT(
             transfer(QString, QString, QString, QString)));
@@ -121,4 +123,12 @@ void MainWindow::refreshWalletData() {
 
 void MainWindow::goToLoginScreen() {
     this->ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::showGolosPaymentDialog() {
+    this->showPaymentDialog(" GOLOS");
+}
+
+void MainWindow::showGbgPaymentDialog() {
+    this->showPaymentDialog(" GBG");
 }

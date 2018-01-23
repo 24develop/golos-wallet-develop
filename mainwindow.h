@@ -35,7 +35,11 @@ public slots:
 
     void refreshWalletData();
 
-    void showPaymentDialog();
+    void showPaymentDialog(QString suffix);
+
+    void showGolosPaymentDialog();
+
+    void showGbgPaymentDialog();
 
     void transfer(QString to, QString amount, QString memo, QString password);
 

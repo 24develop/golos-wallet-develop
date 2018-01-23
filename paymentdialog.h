@@ -4,15 +4,15 @@
 #include <QDialog>
 
 namespace Ui {
-class PaymentDialog;
+    class PaymentDialog;
 }
 
-class PaymentDialog : public QDialog
-{
-    Q_OBJECT
+class PaymentDialog : public QDialog {
+Q_OBJECT
 
 public:
     explicit PaymentDialog(QWidget *parent = 0);
+
     ~PaymentDialog();
 
 private:
@@ -21,6 +21,11 @@ private:
 private slots:
 
     void emitTransfer();
+
+
+public slots:
+
+    void setAmountSuffix(QString suffix);
 
 signals:
 
