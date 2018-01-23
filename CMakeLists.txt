@@ -32,6 +32,10 @@ set(SOURCE_FILES
         mainwindow.h
         paymentdialog.cpp
         paymentdialog.h
+        transactionerrordialog.cpp
+        transactionerrordialog.h
+        loaderdialog.cpp
+        loaderdialog.h
         socketsender.cpp socketsender.h
         Response.cpp Response.h
         Transaction.cpp Transaction.h

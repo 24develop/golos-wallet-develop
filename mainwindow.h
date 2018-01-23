@@ -42,6 +42,8 @@ public slots:
     void logout();
 
     void exit();
+
+    void goToLoginScreen();
 };
 
 #endif // MAINWINDOW_H

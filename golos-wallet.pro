@@ -33,7 +33,9 @@ SOURCES += \
     paymentdialog.cpp \
     commandsender.cpp \
     cmdsender.cpp \
-    socketsender.cpp
+    socketsender.cpp \
+    transactionerrordialog.cpp \
+    loaderdialog.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -44,13 +46,17 @@ HEADERS += \
     paymentdialog.h \
     commandsender.h \
     cmdsender.h \
-    socketsender.h
+    socketsender.h \
+    transactionerrordialog.h \
+    loaderdialog.h
 
 FORMS += \
         mainwindow.ui \
     loginwindow.ui \
     paymentdialog.ui \
-    paymentdialog.ui
+    paymentdialog.ui \
+    transactionerrordialog.ui \
+    loaderdialog.ui
 
 DISTFILES += \
     ../../../Downloads/ajax-loader.gif \

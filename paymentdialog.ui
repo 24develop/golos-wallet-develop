@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>PaymentDialog</class>
  <widget class="QDialog" name="PaymentDialog">
+     <property name="windowModality">
+         <enum>Qt::ApplicationModal</enum>
+     </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,6 +16,9 @@
   <property name="windowTitle">
    <string>Payment</string>
   </property>
+     <property name="modal">
+         <bool>true</bool>
+     </property>
      <layout class="QVBoxLayout" name="verticalLayout_7">
    <item>
        <layout class="QHBoxLayout" name="horizontalLayout_7">

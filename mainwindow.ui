@@ -36,7 +36,7 @@
              <string notr="true"/>
          </property>
       <property name="currentIndex">
-       <number>0</number>
+          <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -135,6 +135,22 @@
           </layout>
          </widget>
         </item>
+           <item>
+               <spacer name="verticalSpacer_3">
+                   <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                       <enum>QSizePolicy::Preferred</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                       <size>
+                           <width>20</width>
+                           <height>1000</height>
+                       </size>
+                   </property>
+               </spacer>
+           </item>
        </layout>
       </widget>
       <widget class="QWidget" name="page_2">
@@ -312,6 +328,36 @@
                 </property>
             </spacer>
         </item>
+           <item>
+               <widget class="QPushButton" name="logoutBtn">
+                   <property name="styleSheet">
+                       <string notr="true">QPushButton#logoutBtn {
+                           background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a),
+                           color-stop(1, #68a54b));
+                           background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                           background:-webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                           background:-o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                           background:-ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+                           background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+                           background-color: rgb(252, 175, 62);
+                           border:1px solid rgb(143, 89, 2);
+                           color:rgb(46, 52, 54);
+                           font-family:Arial;
+                           font-size:16px;
+                           padding: 5px 10px;
+                           text-decoration:none;}
+
+                           QPushButton#loginBtn:pressed {
+                           background-color: rgb(233, 185, 110);
+                           border-style: inset;
+                           }
+                       </string>
+                   </property>
+                   <property name="text">
+                       <string>Logout</string>
+                   </property>
+               </widget>
+           </item>
        </layout>
       </widget>
          <widget class="QWidget" name="page_3">
@@ -343,8 +389,11 @@
                          </item>
                          <item>
                              <widget class="QLabel" name="transferLabel">
+                                 <property name="styleSheet">
+                                     <string notr="true">color: rgb(255, 255, 255);</string>
+                                 </property>
                                  <property name="text">
-                                     <string>Transfer...</string>
+                                     <string>Connecting...</string>
                                  </property>
                                  <property name="alignment">
                                      <set>Qt::AlignCenter</set>
@@ -370,47 +419,7 @@
       </widget>
      </widget>
     </item>
-    <item>
-     <spacer name="verticalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-         <property name="sizeType">
-             <enum>QSizePolicy::Preferred</enum>
-         </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-           <height>1000</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-      <property name="enabled">
-          <bool>true</bool>
-      </property>
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-        <width>334</width>
-     <height>25</height>
-    </rect>
-   </property>
-      <property name="styleSheet">
-          <string notr="true"/>
-      </property>
-      <widget class="QMenu" name="menuFile">
-          <property name="title">
-              <string>File</string>
-          </property>
-          <addaction name="actionLogout"/>
-          <addaction name="actionExit"/>
-      </widget>
-      <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
      <action name="actionLogout">
