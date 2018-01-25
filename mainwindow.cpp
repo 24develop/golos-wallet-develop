@@ -4,7 +4,7 @@
 #include "mainwindow.h"
 #include "paymentdialog.h"
 
-#include "cmake-build-debug/hackaton_wallet_autogen/include/ui_mainwindow.h"
+#include "ui_mainwindow.h"
 #include "lib/Auth.h"
 #include "transactionerrordialog.h"
 #include "loaderdialog.h"
