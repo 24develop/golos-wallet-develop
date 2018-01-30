@@ -6,10 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-       <width>334</width>
-       <height>487</height>
+       <width>320</width>
+       <height>538</height>
    </rect>
   </property>
+     <property name="baseSize">
+         <size>
+             <width>0</width>
+             <height>0</height>
+         </size>
+     </property>
   <property name="windowTitle">
    <string>Golog Wallet</string>
   </property>
@@ -24,7 +30,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
          <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
              </sizepolicy>
@@ -41,12 +47,9 @@
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-            <spacer name="verticalSpacer_2">
+            <spacer name="verticalSpacer_7">
                 <property name="orientation">
                     <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeType">
-                    <enum>QSizePolicy::Minimum</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                     <size>
@@ -61,6 +64,12 @@
                    <property name="enabled">
                        <bool>true</bool>
                    </property>
+                   <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                       </sizepolicy>
+                   </property>
                    <property name="styleSheet">
                        <string notr="true">color: #ffffff;</string>
                    </property>
@@ -70,6 +79,12 @@
                    <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
                <widget class="QLineEdit" name="loginEdit">
+                   <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                       </sizepolicy>
+                   </property>
                    <property name="styleSheet">
                        <string notr="true">padding: 10px;
                            font-size: 20px;
@@ -79,7 +94,7 @@
                        </string>
                    </property>
                    <property name="text">
-                       <string notr="true">mybigcool</string>
+                       <string notr="true"/>
                    </property>
                    <property name="clearButtonEnabled">
                        <bool>false</bool>
@@ -87,25 +102,41 @@
                </widget>
            </item>
            <item>
-               <spacer name="verticalSpacer">
-                   <property name="orientation">
-                       <enum>Qt::Vertical</enum>
+               <widget class="QPushButton" name="loginBtn">
+                   <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                       </sizepolicy>
                    </property>
-                   <property name="sizeType">
-                       <enum>QSizePolicy::Fixed</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
+                   <property name="maximumSize">
                        <size>
-                           <width>20</width>
-                           <height>10</height>
+                           <width>16777215</width>
+                           <height>16777215</height>
                        </size>
                    </property>
-               </spacer>
-           </item>
-                       <item>
-                           <widget class="QPushButton" name="loginBtn">
-                               <property name="styleSheet">
-                                   <string notr="true">QPushButton#loginBtn {
+                   <property name="sizeIncrement">
+                       <size>
+                           <width>0</width>
+                           <height>0</height>
+                       </size>
+                   </property>
+                   <property name="baseSize">
+                       <size>
+                           <width>0</width>
+                           <height>0</height>
+                       </size>
+                   </property>
+                   <property name="font">
+                       <font>
+                           <family>Arial</family>
+                           <pointsize>-1</pointsize>
+                           <underline>false</underline>
+                           <strikeout>false</strikeout>
+                       </font>
+                   </property>
+                   <property name="styleSheet">
+                       <string notr="true">QPushButton#loginBtn {
                         background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a),
                         color-stop(1, #68a54b));
                         background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
@@ -126,7 +157,7 @@
                         border-style: inset;
                         }
                     </string>
-                               </property>
+                   </property>
              <property name="text">
               <string>LOGIN</string>
              </property>
@@ -140,13 +171,10 @@
                    <property name="orientation">
                        <enum>Qt::Vertical</enum>
                    </property>
-                   <property name="sizeType">
-                       <enum>QSizePolicy::Preferred</enum>
-                   </property>
                    <property name="sizeHint" stdset="0">
                        <size>
                            <width>20</width>
-                           <height>1000</height>
+                           <height>40</height>
                        </size>
                    </property>
                </spacer>
@@ -320,6 +348,9 @@
           <property name="orientation">
               <enum>Qt::Vertical</enum>
           </property>
+                <property name="sizeType">
+                    <enum>QSizePolicy::Expanding</enum>
+          </property>
                 <property name="sizeHint" stdset="0">
                     <size>
                         <width>20</width>
@@ -330,6 +361,12 @@
         </item>
            <item>
                <widget class="QPushButton" name="logoutBtn">
+                   <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                           <horstretch>0</horstretch>
+                           <verstretch>0</verstretch>
+                       </sizepolicy>
+                   </property>
                    <property name="styleSheet">
                        <string notr="true">QPushButton#logoutBtn {
                            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a),
